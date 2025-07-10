@@ -1,0 +1,9 @@
+<mat-grid-list cols="5" rowHeight="5:6">
+  @for (item of data; track $index) {
+    <mat-grid-tile>
+      <app-card [img]="item.img" [title]="item.title"></app-card>
+    </mat-grid-tile>
+  }
+</mat-grid-list>
+
+<app-paginator/>

@@ -1,0 +1,21 @@
+<form (ngSubmit)="SubmitForm()">
+    <h2>เพิ่มข้อมูลผู้ใช้</h2>
+    <label for="name">name:</label>
+    <input
+      placeholder="ชื่อพนักงาน"
+      type="text"
+      name="name"
+      [ngModel]="fullname()"
+      (ngModelChange)="fullname.set($event)">
+    <br>
+    <label for="salary">salary:</label>
+    <input
+      placeholder="เงินเดือน"
+      type="number"
+      name="salary"
+      step="5000"
+      [ngModel]="salary()"
+      (ngModelChange)="salary.set($event)">
+    <br><br>
+    <button>submit</button>
+</form>

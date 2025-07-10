@@ -1,0 +1,81 @@
+<app-header title="test web"></app-header>
+@for (item of employee; track $index) {
+   <app-item (onDelete)="removeDataById($event)" [id]="$index" name="{{item.name}}" salary="{{item.salary}}"/>
+}@empty {
+    <h2>ไม่มีพนักงานในระบบ</h2>
+}
+<app-addform (onSubmit)="inSertEmployee($event)"/>
+<hr>
+<button [ngStyle]="myStype" (click)="changeMode()">{{isMode?'Light':'Dark'}}</button>
+<hr>
+<h1 [ngStyle]="{'background':background,'color':color,'padding':isMode?'10px':'0px'}">NgStyle</h1>
+<hr>
+<div [ngClass]="isMode ? 'dark':'light'">
+    <h1>ชื่อ {{ name }}</h1>
+    <h2>ที่อยู่ {{ address }}</h2>
+    <h3>อายุ {{ age() }}</h3>
+    <h4>วันเกิด {{ birthday }}</h4>
+    <hr>
+    
+    <img [src]="image" [alt]="image" [width]="width" [height]="height">
+    <hr>
+    
+    
+    <button (click)="ShowAlert()">ShowAlert</button>
+    <p>Count : {{ countclick }}</p>
+    <button (click)="AddNumber()">add</button>
+    <hr>
+    
+    @switch (isLogin) {
+        @case (true) {
+            <button (click)="Logout()">ออกจากระบบ</button>
+        }@default {
+            <button (click)="Login()">เข้าสู่ระบบ</button>
+        }
+    }
+    
+    <h1>ผู้ใช้ : {{ username }}</h1>
+    <input type="text" [(ngModel)]="username">
+    @if (username=="admin") {
+        <h2>ยินดีต้อนรับเข้าสู่ระบบแอดมิน</h2>
+    }@else if(username==""){
+        <h2>กรุณาใส่ username</h2>
+    }@else {
+        <h2>สวัดดีครับ</h2>
+    }
+    
+    <hr>
+    <button (click)="clearEmployee()">clear employee</button>
+    @for (item of employee; track $index) {
+        <h2>ID {{$index}}</h2>
+        <h2>ชื่อ {{item.name}}</h2>
+        <h2>เงินเดือน {{item.salary}}</h2>
+        <hr>
+    }@empty {
+        <h2>ไม่มีพนักงานในระบบ</h2>
+    }
+</div>
+<hr>
+<label>{{'passapol' | uppercase}}</label><br>
+<label>{{'passapol' | lowercase}}</label><br>
+<label>{{'25000' | currency}}</label><br>
+<label>{{'25000' | currency:"USB"}}</label><br>
+<label>{{'25000' | currency:"JPY"}}</label><br>
+<label>{{'25000' | currency:"THB"}}</label><br>
+<label>{{'06-06-2004' | date:"shortDate"}}</label><br>
+<label>{{'06-06-2004' | date:"fullDate" | uppercase}}</label><br>
+<hr>
+<p>ชื่อพนักงาน signal : {{fname()}}</p>
+<p>สกุลพนักงาน signal : {{lname()}}</p>
+<p>ประสบการณ์ signal : {{exp()}} / x2 {{dubbleExp()}}</p>
+<p>fullName : {{ fullName() }}</p>
+<button (click)="changeName()">changeName</button>
+<button (click)="addExp()">EXP +1</button>
+<p>ทักษะ signal : {{skills()}}</p>
+@for (item of skills(); track $index) {
+    <li>{{item}}</li>
+}
+<hr>
+
+
+
