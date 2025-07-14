@@ -1,0 +1,23 @@
+.filters-bar{
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+.container{
+    padding: 30px;
+    .items{
+        display: flex;
+        border-bottom: 1px solid #242524;
+        .img{
+            padding: 10px;
+            img{
+                width: 300px;
+                height: 220px;
+            }
+        }
+        .detail{
+            
+        }
+    }
+}

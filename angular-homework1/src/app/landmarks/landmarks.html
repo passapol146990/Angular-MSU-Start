@@ -1,0 +1,36 @@
+<div class="filters-bar">
+    <div>
+        <label>หมายเลข : </label>
+        <input type="text" #id />
+        <button (click)="FilterIdx(id)">ค้นหา</button>
+    </div>
+    <div>
+        <label>ชื่อสถาที่ : </label>
+        <input type="text" #name>
+        <button (click)="FilterName(name)">ค้นหา</button>
+    </div>
+    <div>
+        <label for="countrySelect">ประเทศ : </label>
+        <select name="country" id="countrySelect" #countrySelect (change)="FilterCountry(countrySelect.value)">
+            <option value="">-- เลือกประเทศทั้งหมด --</option>
+            @for (countryName of uniqueCountries; track $index) {
+            <option [value]="countryName">{{ countryName }}</option>
+            }
+        </select>
+    </div>
+</div>
+<hr>
+<div class="container">
+    @for (item of items; track $index) {
+    <div [id]="item.idx" class="items">
+        <div class="img">
+            <img [src]="item.url" alt="">
+        </div>
+        <div class="detail">
+            <h3>{{ item.name }}</h3>
+            <h5>{{ item.country }}</h5>
+            <p>{{ item.detail }}</p>
+        </div>
+    </div>
+    }
+</div>

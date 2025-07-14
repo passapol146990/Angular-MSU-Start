@@ -3,63 +3,87 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { Data } from '../../app';
 import { Card } from '../card/card';
 import { Paginator } from "../paginator/paginator";
+import { SelectRadios } from "../select-radios/select-radios";
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-contents',
-  imports: [MatGridListModule, Card, Paginator],
+  imports: [MatGridListModule, Card, Paginator, SelectRadios, MatButtonModule],
   templateUrl: './contents.html',
   styleUrl: './contents.css'
 })
 
 export class Contents {
-  data:Data[] = [
+  MainData:Data[] = [
     {
+      type:"cat",
       img:"https://i.guim.co.uk/img/media/327aa3f0c3b8e40ab03b4ae80319064e401c6fbc/377_133_3542_2834/master/3542.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=34d32522f47e4a67286f9894fc81c863",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type: "dog",
       img:"https://material.angular.dev/assets/img/examples/shiba2.jpg",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type:"cat",
       img:"https://i.guim.co.uk/img/media/327aa3f0c3b8e40ab03b4ae80319064e401c6fbc/377_133_3542_2834/master/3542.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=34d32522f47e4a67286f9894fc81c863",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type: "dog",
       img:"https://material.angular.dev/assets/img/examples/shiba2.jpg",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type:"cat",
       img:"https://i.guim.co.uk/img/media/327aa3f0c3b8e40ab03b4ae80319064e401c6fbc/377_133_3542_2834/master/3542.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=34d32522f47e4a67286f9894fc81c863",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type: "dog",
       img:"https://material.angular.dev/assets/img/examples/shiba2.jpg",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type:"cat",
       img:"https://i.guim.co.uk/img/media/327aa3f0c3b8e40ab03b4ae80319064e401c6fbc/377_133_3542_2834/master/3542.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=34d32522f47e4a67286f9894fc81c863",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type: "dog",
       img:"https://material.angular.dev/assets/img/examples/shiba2.jpg",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type:"cat",
       img:"https://i.guim.co.uk/img/media/327aa3f0c3b8e40ab03b4ae80319064e401c6fbc/377_133_3542_2834/master/3542.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=34d32522f47e4a67286f9894fc81c863",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type: "dog",
       img:"https://material.angular.dev/assets/img/examples/shiba2.jpg",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type:"cat",
       img:"https://i.guim.co.uk/img/media/327aa3f0c3b8e40ab03b4ae80319064e401c6fbc/377_133_3542_2834/master/3542.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=34d32522f47e4a67286f9894fc81c863",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
     {
+      type: "dog",
       img:"https://material.angular.dev/assets/img/examples/shiba2.jpg",
       title:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere perferendis est voluptates repudiandae doloribus suscipit sequi animi aspernatur expedita aliquam!"
     },
   ]
+
+  data:Data[] = this.MainData;
+  
+  clearSelect(){
+    this.data = this.MainData;
+  }
+
+  SelectAnimal(x:string){
+    this.data = this.MainData.filter((e)=>e.type==x)
+  }
 }

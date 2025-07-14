@@ -1,9 +1,18 @@
+<div class="button-select">
+  <app-select-radios (onSelect)="SelectAnimal($event)"></app-select-radios>
+  <section>
+    <div class="example-button-row">
+      <button matButton="elevated" (click)="clearSelect()">clear select</button>
+    </div>
+  </section>
+</div>
+
 <mat-grid-list cols="5" rowHeight="5:6">
   @for (item of data; track $index) {
-    <mat-grid-tile>
-      <app-card [img]="item.img" [title]="item.title"></app-card>
-    </mat-grid-tile>
+  <mat-grid-tile>
+    <app-card [img]="item.img" [title]="item.title"></app-card>
+  </mat-grid-tile>
   }
 </mat-grid-list>
 
-<app-paginator/>
+<app-paginator />
